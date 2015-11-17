@@ -1,29 +1,46 @@
-﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+﻿#NoEnv 
 #SingleInstance force
-; #Warn  ; Enable warnings to assist with detecting common errors.
-SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
-SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
-if not A_IsAdmin
+SendMode Input  
+SetWorkingDir %A_ScriptDir%  
+if not A_IsAdmin ; admin is needed to make sure it can kill off the connection. 
 {
     Run *RunAs "%A_ScriptFullPath%"
     ExitApp
 }
-; adam's mods for his storage usage.
-~RButton & WheelDown::Send {Right}
-~RButton & WheelUp::Send {Left}
+
+^End::
+	SoundPlay *64 
+	ExitApp
+Return
+
+
+; Storage Tools 
+; =============================================================================
+#Ifwinactive, Path of Exile
+~RButton & WheelDown::
+	Send {Right}
+return
+
+#Ifwinactive, Path of Exile
+~RButton & WheelUp::
+	Send {Left}
+return
 
 #Ifwinactive, Path of Exile
 ~a::
-SendInput, {Left}
-SendInput, {End}
+	SendInput, {Left}
+	SendInput, {End}
 return
 
 #Ifwinactive, Path of Exile
 ~d::
-SendInput, {Right}
+	SendInput, {Right}
 return
 
 
+
+; Quick Disconnect. 
+; ============================================================================
 #Ifwinactive, Path of Exile
 `::
 	string:= "cports.exe /close * * * * PathOfExileSteam.exe"
@@ -32,4 +49,79 @@ return
 		Run, %string%
 		lastlogout := A_TickCount
 	}
+return
+
+
+; Utility Macros
+; F2 = Hideout
+; F3 = Remaining Monsters
+; F4 = itemlevel
+; F5 = Party Invite the last person who PM'ed you.
+; ============================================================================
+#Ifwinactive, Path of Exile
+~F2::
+	BlockInput On
+	SendInput, {Enter}
+	Sleep 2
+	SendInput, {/}hideout
+	SendInput, {Enter}
+	BlockInput Off
+	return
+return
+
+#Ifwinactive, Path of Exile
+~F3::
+	BlockInput On
+	SendInput, {Enter}
+	Sleep 2
+	SendInput, {/}remaining
+	SendInput, {Enter}
+	BlockInput Off
+	return
+return
+
+#Ifwinactive, Path of Exile
+~F4::
+	BlockInput On
+	SendInput, {Enter}
+	Sleep 2
+	SendInput, {/}itemlevel
+	SendInput, {Enter}
+	BlockInput Off
+	return
+return
+
+#Ifwinactive, Path of Exile
+~F5::
+	BlockInput On
+	Send ^{Enter}{Home}{Delete}/invite {Enter}
+	BlockInput Off
+	return
+return
+
+; Chat Macros
+; Alt + 1 tells the pm-er you're in a map. 
+; Alt + 2 thanks the pm-er. 
+; ============================================================================
+
+#IfWinActive, Path of Exile
+LAlt & 1::
+	BlockInput On
+	SendInput, ^{Enter}
+	Sleep 2
+	SendInput, one moment please, I'm in a map.
+	SendInput, {Enter}
+	BlockInput Off
+	return
+return
+
+#IfWinActive, Path of Exile
+LAlt & 2::
+	BlockInput On
+	SendInput, ^{Enter}
+	Sleep 2
+	SendInput, thanks for trade -- stay safe!
+	SendInput, {Enter}
+	BlockInput Off
+	return
 return
