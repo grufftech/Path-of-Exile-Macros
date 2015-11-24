@@ -1,8 +1,42 @@
-﻿^End::
-	SoundPlay *64 
-	ExitApp
-Return
+#SingleInstance force
+#NoEnv 
+#Persistent ; Stay open in background
+SendMode Input 
+StringCaseSense, On ; Match strings with case.
+SetWorkingDir %A_ScriptDir%  
+Menu, tray, Tip, Exile Tools Price Check
 
+If (A_AhkVersion <= "1.1.22")
+{
+    msgbox, You need AutoHotkey v1.1.22 or later to run this script. `n`nPlease go to http://ahkscript.org/download and download a recent version.
+    exit
+}
+
+if not A_IsAdmin ; admin is needed to make sure it can kill off the connection. 
+{
+    Run *RunAs "%A_ScriptFullPath%"
+    ExitApp
+}
+
+global LeagueName := "darkshrinehc"
+;global LeagueName := "tempest"
+;global LeagueName := "standard"
+;global LeagueName := "hardcore"
+
+global showDays := "7"
+global runVersion := "5.1"
+Global URL = "http://api.exiletools.com/item-report-text"
+MouseMoveThreshold := 40
+CoordMode, Mouse, Screen
+CoordMode, ToolTip, Screen
+
+
+; Command Macros. 
+
+^End::
+  SoundPlay *64 
+  Reload
+Return
 
 ; Storage Tools 
 ; =============================================================================
@@ -18,8 +52,7 @@ return
 
 #Ifwinactive, Path of Exile
 ~a::
-	SendInput, {Left}
-	SendInput, {End}
+	SendInput, {Left}{End}
 return
 
 #Ifwinactive, Path of Exile
@@ -29,22 +62,23 @@ return
 
 
 #Ifwinactive, Path of Exile
+~q::
+	SendInput, {Left 5}{End}
+return
+
+#Ifwinactive, Path of Exile
+~e::
+  SendInput, {Right 5}
+return
+
+#Ifwinactive, Path of Exile
 ~+a::
-	SendInput, {Left}
-	SendInput, {Left}
-	SendInput, {Left}
-	SendInput, {Left}
-	SendInput, {Left}
-	SendInput, {End}
+  SendInput, {Left 40}{End}
 return
 
 #Ifwinactive, Path of Exile
 ~+d::
-	SendInput, {Right}
-	SendInput, {Right}
-	SendInput, {Right}
-	SendInput, {Right}
-	SendInput, {Right}
+  SendInput, {Right 40}
 return
 
 
@@ -135,3 +169,18 @@ LAlt & 2::
 	BlockInput Off
 	return
 return
+
+
+
+
+; Price check w/ auto filters
+; default is shift+f
+#Ifwinactive, Path of Exile
++f::
+IfWinActive, Path of Exile ahk_class Direct3DWindowClass 
+{
+  FunctionReadItemFromClipboard()
+}
+return
+
+#include poelib.ahk

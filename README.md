@@ -8,7 +8,9 @@ Cports.exe closes the network traffic of Path of Exile for SUPER FAST alt-f4's.
 
 A & D move left & right while in your stash. 
 
-Shift A & D will move move left / right 5 tabs in your stash. 
+Q & E will move left & right 5 tabs in your stash. 
+
+Shift A & D will move to the start or end of your stash. 
 
 Holding Shift, you can also scroll up & down to move left and right 
 
