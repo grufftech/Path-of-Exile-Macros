@@ -1,14 +1,4 @@
-﻿#NoEnv 
-#SingleInstance force
-SendMode Input  
-SetWorkingDir %A_ScriptDir%  
-if not A_IsAdmin ; admin is needed to make sure it can kill off the connection. 
-{
-    Run *RunAs "%A_ScriptFullPath%"
-    ExitApp
-}
-
-^End::
+﻿^End::
 	SoundPlay *64 
 	ExitApp
 Return
@@ -17,12 +7,12 @@ Return
 ; Storage Tools 
 ; =============================================================================
 #Ifwinactive, Path of Exile
-~RButton & WheelDown::
+~+WheelDown::
 	Send {Right}
 return
 
 #Ifwinactive, Path of Exile
-~RButton & WheelUp::
+~+WheelUp::
 	Send {Left}
 return
 
@@ -34,6 +24,26 @@ return
 
 #Ifwinactive, Path of Exile
 ~d::
+	SendInput, {Right}
+return
+
+
+#Ifwinactive, Path of Exile
+~+a::
+	SendInput, {Left}
+	SendInput, {Left}
+	SendInput, {Left}
+	SendInput, {Left}
+	SendInput, {Left}
+	SendInput, {End}
+return
+
+#Ifwinactive, Path of Exile
+~+d::
+	SendInput, {Right}
+	SendInput, {Right}
+	SendInput, {Right}
+	SendInput, {Right}
 	SendInput, {Right}
 return
 

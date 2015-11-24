@@ -8,7 +8,9 @@ Cports.exe closes the network traffic of Path of Exile for SUPER FAST alt-f4's.
 
 A & D move left & right while in your stash. 
 
-Holding Right Click, you can also scroll up & down to move left and right 
+Shift A & D will move move left / right 5 tabs in your stash. 
+
+Holding Shift, you can also scroll up & down to move left and right 
 
 ## Quick Disconnect
 
@@ -24,6 +26,7 @@ Your tilde key (~) will disconnect POE.
 
 - F5 = Party Invite the last person who PM'ed you.
 
+- Shift-F = Searches pwx.me for items like what you have. 
 
 ## Chat Macros
 
