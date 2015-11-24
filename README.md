@@ -28,7 +28,7 @@ Your tilde key (~) will disconnect POE.
 
 - F5 = Party Invite the last person who PM'ed you.
 
-- Shift-F = Searches pwx.me for items like what you have. 
+- S = Searches pwx.me for items like what you have. 
 
 ## Chat Macros
 
