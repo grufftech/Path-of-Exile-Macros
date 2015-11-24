@@ -35,3 +35,12 @@ Your tilde key (~) will disconnect POE.
 - Alt + 1 tells the pm-er you're in a map. 
  
 - Alt + 2 thanks the pm-er. 
+
+
+# Installation
+
+- http://ahkscript.org/
+
+- install 32bit version.  
+
+- run POEMacros.ahk while playing POE.  You should see a green icon in your taskbar. 
