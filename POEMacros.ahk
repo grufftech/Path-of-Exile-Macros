@@ -5,6 +5,7 @@ SendMode Input
 StringCaseSense, On ; Match strings with case.
 SetWorkingDir %A_ScriptDir%  
 Menu, tray, Tip, Exile Tools Price Check
+Run POE-ItemInfo.ahk
 
 If (A_AhkVersion <= "1.1.22")
 {
@@ -19,14 +20,10 @@ if not A_IsAdmin ; admin is needed to make sure it can kill off the connection.
 }
 
 global LeagueName := "darkshrinehc"
-;global LeagueName := "tempest"
-;global LeagueName := "standard"
-;global LeagueName := "hardcore"
-
 global showDays := "7"
 global runVersion := "5.1"
 Global URL = "http://api.exiletools.com/item-report-text"
-MouseMoveThreshold := 40
+MouseMoveThreshold := 100
 CoordMode, Mouse, Screen
 CoordMode, ToolTip, Screen
 
@@ -51,36 +48,42 @@ return
 return
 
 #Ifwinactive, Path of Exile
-~a::
+~q::
 	SendInput, {Left}{End}
 return
 
 #Ifwinactive, Path of Exile
-~d::
+~e::
 	SendInput, {Right}
 return
 
-
 #Ifwinactive, Path of Exile
-~q::
-	SendInput, {Left 5}{End}
-return
-
-#Ifwinactive, Path of Exile
-~e::
-  SendInput, {Right 5}
-return
-
-#Ifwinactive, Path of Exile
-~+a::
+~+q::
   SendInput, {Left 40}{End}
 return
 
 #Ifwinactive, Path of Exile
-~+d::
+~+e::
   SendInput, {Right 40}
 return
 
+
+#Ifwinactive, Path of Exile
+~t::
+  BlockInput On
+  SendInput, p
+  Sleep 25
+  SendInput {Click left 960, 500, 0}
+  Sleep 25
+  SendInput, B
+  Sleep 25
+  SendInput {Click right 1350, 620} 
+  Sleep 25
+  SendInput {Click left 644, 335}
+  Sleep 25
+  BlockInput Off
+  return
+return
 
 
 ; Quick Disconnect. 
@@ -173,7 +176,7 @@ return
 ; Price check w/ auto filters
 ; default is shift+f
 #Ifwinactive, Path of Exile
-s::
+~^c::
 IfWinActive, Path of Exile ahk_class Direct3DWindowClass 
 {
   FunctionReadItemFromClipboard()
