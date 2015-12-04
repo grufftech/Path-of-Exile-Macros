@@ -34,9 +34,9 @@ Your tilde key (~) will disconnect POE.
 
 - F5 = Party Invite the last person who PM'ed you.
 
-- Ctrl+C = Searches pwx.me for items like what you have. 
+- Shift+F = Searches pwx.me for items like what you have. 
 
-- Ctrl+X = Shows you exactly what mods you have. 
+- T = Shows you exactly what mods you have. 
 
 ## Chat Macros
 

@@ -158,7 +158,7 @@ return
 ; Price check w/ auto filters
 ; default is shift+f
 #Ifwinactive, Path of Exile
-~^c::
+~+f::
 IfWinActive, Path of Exile ahk_class Direct3DWindowClass 
 {
   FunctionReadItemFromClipboard()

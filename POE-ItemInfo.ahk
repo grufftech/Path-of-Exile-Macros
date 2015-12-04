@@ -6707,8 +6707,9 @@ ToolTipTimer:
     return
 
 
+; Adams Modifications
 #Ifwinactive, Path of Exile
-~^x::
+t::
     Global Opts
     Send ^c
     ; Wait 250ms - without this the item information doesn't get to the clipboard in time
