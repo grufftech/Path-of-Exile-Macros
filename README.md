@@ -14,17 +14,15 @@ Cports.exe closes the network traffic of Path of Exile for SUPER FAST alt-f4's.
 
 ## Storage Macros
 
-Q & E move left & right while in your stash. 
+A & D move left & right while in your stash. 
 
-Shift Q & E will move to the start or end of your stash. 
+Shift A & D will move to the start or end of your stash. 
 
 Holding Shift, you can also scroll up & down to move left and right 
 
 ## Quick Disconnect
 
 Your tilde key (~) will disconnect POE. 
-
-Your T key will attempt a quick portal. 
 
 ## Utility Macros
 

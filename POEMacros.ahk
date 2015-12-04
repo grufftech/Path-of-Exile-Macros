@@ -48,41 +48,23 @@ return
 return
 
 #Ifwinactive, Path of Exile
-~q::
+~a::
 	SendInput, {Left}{End}
 return
 
 #Ifwinactive, Path of Exile
-~e::
+~d::
 	SendInput, {Right}
 return
 
 #Ifwinactive, Path of Exile
-~+q::
+~+a::
   SendInput, {Left 40}{End}
 return
 
 #Ifwinactive, Path of Exile
-~+e::
+~+d::
   SendInput, {Right 40}
-return
-
-
-#Ifwinactive, Path of Exile
-~t::
-  BlockInput On
-  SendInput, p
-  Sleep 25
-  SendInput {Click left 960, 500, 0}
-  Sleep 25
-  SendInput, B
-  Sleep 25
-  SendInput {Click right 1350, 620} 
-  Sleep 25
-  SendInput {Click left 644, 335}
-  Sleep 25
-  BlockInput Off
-  return
 return
 
 
