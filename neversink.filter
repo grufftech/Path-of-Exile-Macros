@@ -509,7 +509,7 @@ Show
 
 Show
 	Class "Divination"
-	BaseType "The Spoiled Prince" "Abandoned Wealth" "Chains that Bind" "The Drunken Aristocrat" "The Feast" "The Gladiator" "The Hunger" "The Incantation" "The Pact" "The Road to Power" "The Watcher" "The Betrayal" "The Pack Leader" "The Enlightened" "Last Hope" "Merciless Armament" "Pride Before the Fall" "The Surveyor" "The Demoness" "Glimmer Of Hope"
+	BaseType "The Spoiled Prince" "Abandoned Wealth" "Chains that Bind" "The Drunken Aristocrat" "The Feast" "The Gladiator" "The Hunger" "The Incantation" "The Pact" "The Road to Power" "The Watcher" "The Betrayal" "The Pack Leader" "The Enlightened" "Last Hope" "Merciless Armament" "Pride Before the Fall" "The Surveyor" "The Demoness"
 	SetFontSize 42
 	SetBorderColor 0 0 0
 	SetBackgroundColor 235 15 200
@@ -531,7 +531,7 @@ Show
 
 Show
 	Class "Divination"
-	BaseType "Carrion Crow" "Turn The Other Cheek"
+	BaseType "Carrion Crow"
 	SetBackgroundColor 190 65 255
 	SetTextColor 0 0 0
 	SetBorderColor 0 0 0
