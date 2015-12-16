@@ -30,16 +30,18 @@ Your tilde key (~) will disconnect POE.
 
 - F3 = Remaining Monsters
 
-- F4 = itemlevel
+- F4 = itemlevel (largely useless in 2.0+)
 
 - F5 = Party Invite the last person who PM'ed you.
 
 - Shift+F = Searches pwx.me for items like what you have. 
 
-- T = Shows you exactly what mods you have. 
+- Shift+T = Shows you exactly what mods you have. 
 
 ## Chat Macros
 
 - Alt + 1 tells the pm-er you're in a map. 
- 
+
 - Alt + 2 thanks the pm-er. 
+
+- Alt + 3 tells the pm-er you've sold the item. 

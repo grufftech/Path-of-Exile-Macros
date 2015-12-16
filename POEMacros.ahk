@@ -19,7 +19,7 @@ if not A_IsAdmin ; admin is needed to make sure it can kill off the connection.
     ExitApp
 }
 
-global LeagueName := "darkshrinehc"
+global LeagueName := "talismanhc"
 global showDays := "7"
 global runVersion := "5.1"
 Global URL = "http://api.exiletools.com/item-report-text"
@@ -150,6 +150,17 @@ LAlt & 2::
 	SendInput, ^{Enter}
 	Sleep 2
 	SendInput, thanks for trade -- stay safe!
+	SendInput, {Enter}
+	BlockInput Off
+	return
+return
+
+#IfWinActive, Path of Exile
+LAlt & 3::
+	BlockInput On
+	SendInput, ^{Enter}
+	Sleep 2
+	SendInput, sorry just sold.
 	SendInput, {Enter}
 	BlockInput Off
 	return

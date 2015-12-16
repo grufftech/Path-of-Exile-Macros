@@ -1,6 +1,6 @@
 #---------------------------------------------------------------------------------------------------------------
 # NeverSink's Indepth Loot Filter
-# VERSION 2.7 - Full
+# VERSION 2.71 - Full
 #---------------------------------------------------------------------------------------------------------------
 #
 # You can always find the latest version here:
@@ -246,6 +246,7 @@ Show
 	SocketGroup WWWWWW
 	BaseType "Simple Robe"
 	Rarity Unique
+	PlayAlertSound 6 300
 	SetBackgroundColor 175 96 37 255
 	SetBorderColor 0 0 0 255
 	SetTextColor 0 0 0 255
@@ -470,17 +471,20 @@ Show
 #----------------------------------------------------
 
 Show
-	BaseType "Orb of Chance" "Orb of Alteration" "Chromatic Orb" "Jeweller's Orb"
+	BaseType "Orb of Chance" "Orb of Alteration" "Chromatic Orb" "Jeweller's Orb" "Orb of Augmentation" "Orb of Transmutation"
 	SetTextColor 190 178 135 255
-	SetFontSize 36
+	SetBorderColor 190 178 135 255
+	SetFontSize 38
 
 #----------------------------------------------------
 # 0304 # BOTTOM TIER: LOW ORB VARIATIONS
 #----------------------------------------------------
 
 Show
-	BaseType "Portal Scroll" "Scroll of Wisdom"
-	SetTextColor 170 158 130 220
+	BaseType "Portal Scroll" "Scroll of Wisdom" "Armourer's Scrap" "Blacksmith's Whetstone" 
+	SetTextColor 190 178 135 255
+	SetBorderColor 190 178 135 255
+	SetFontSize 38
 	
 Show
 	BaseType "Scroll Fragment"
@@ -509,7 +513,7 @@ Show
 
 Show
 	Class "Divination"
-	BaseType "The Spoiled Prince" "Abandoned Wealth" "Chains that Bind" "The Drunken Aristocrat" "The Feast" "The Gladiator" "The Hunger" "The Incantation" "The Pact" "The Road to Power" "The Watcher" "The Betrayal" "The Pack Leader" "The Enlightened" "Last Hope" "Merciless Armament" "Pride Before the Fall" "The Surveyor" "The Demoness"
+	BaseType "The Spoiled Prince" "Abandoned Wealth" "Chains that Bind" "The Drunken Aristocrat" "The Feast" "The Gladiator" "The Hunger" "The Incantation" "The Pact" "The Road to Power" "The Watcher" "The Betrayal" "The Pack Leader" "The Enlightened" "Last Hope" "Merciless Armament" "Pride Before the Fall" "The Surveyor" "The Demoness" "Glimmer"
 	SetFontSize 42
 	SetBorderColor 0 0 0
 	SetBackgroundColor 235 15 200
@@ -531,7 +535,7 @@ Show
 
 Show
 	Class "Divination"
-	BaseType "Carrion Crow"
+	BaseType "Carrion Crow" "Other Cheek"
 	SetBackgroundColor 190 65 255
 	SetTextColor 0 0 0
 	SetBorderColor 0 0 0
@@ -621,7 +625,6 @@ Show # Drop only meh gems
 	Class Gem
 	BaseType "Detonate Mines" "Added Chaos Damage" "Vaal"
 	SetBorderColor 30 150 180 150
-	PlayAlertSound 6 300
 	SetFontSize 38
 
 Show
@@ -1491,9 +1494,15 @@ Show
 # 0702 # CHROMATIC ORB RECIPE ITEMS
 #------------------------------------------------------------------------
 Show
+    Width 2
+    Height <= 3
+    SocketGroup RGB 
 	SocketGroup RGB
-	SetBackgroundColor 75 75 75
+	SetBackgroundColor 75 255 75
+	SetTextColor 0 0 0 255
 	SetBorderColor 0 0 0
+	SetFontSize 38
+
 	
 #------------------------------------------------------------------------
 # 0703 # MAGIC RINGS, AMULETS, BELTS
