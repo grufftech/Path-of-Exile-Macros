@@ -72,7 +72,8 @@ return
 ; ============================================================================
 #Ifwinactive, Path of Exile
 `::
-	string:= "cports.exe /close * * * * PathOfExileSteam.exe"
+; 	string:= "cports.exe /close * * * * PathOfExileSteam.exe"
+	string:= "cports.exe /close * * * * PathOfExile.exe"
 	ltime := lastlogout + 1000
 	if ( ltime < A_TickCount ) {
 		Run, %string%
@@ -99,7 +100,8 @@ return
 return
 
 #Ifwinactive, Path of Exile
-~F3::
+~Tab::
+if (RateLimit(5000, 1)){
 	BlockInput On
 	SendInput, {Enter}
 	Sleep 2
@@ -107,17 +109,7 @@ return
 	SendInput, {Enter}
 	BlockInput Off
 	return
-return
-
-#Ifwinactive, Path of Exile
-~F4::
-	BlockInput On
-	SendInput, {Enter}
-	Sleep 2
-	SendInput, {/}itemlevel
-	SendInput, {Enter}
-	BlockInput Off
-	return
+}
 return
 
 #Ifwinactive, Path of Exile
@@ -177,3 +169,17 @@ IfWinActive, Path of Exile ahk_class Direct3DWindowClass
 return
 
 #include poelib.ahk
+
+
+
+RateLimit(ms, n)
+{
+    static lastcall := {}
+ 
+    if (A_TickCount - (lastcall[n] ? lastcall[n] : 0) > ms)
+    {
+        lastcall[n] := A_TickCount
+        return true
+    } 
+    return false
+}

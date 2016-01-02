@@ -1,3 +1,5 @@
+# DUE TO POE STEAM CRASHING ON MY SYSTEM; LOGOUT NO LONGER WORKS WITH STEAM VERSION!!!.
+
 # Installation
 
 - http://ahkscript.org/
