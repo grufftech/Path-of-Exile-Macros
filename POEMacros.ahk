@@ -1,9 +1,9 @@
 #SingleInstance force
-#NoEnv 
+#NoEnv
 #Persistent ; Stay open in background
-SendMode Input 
+SendMode Input
 StringCaseSense, On ; Match strings with case.
-SetWorkingDir %A_ScriptDir%  
+SetWorkingDir %A_ScriptDir%
 Menu, tray, Tip, Exile Tools Price Check
 Run POE-ItemInfo.ahk
 
@@ -13,13 +13,13 @@ If (A_AhkVersion <= "1.1.22")
     exit
 }
 
-if not A_IsAdmin ; admin is needed to make sure it can kill off the connection. 
+if not A_IsAdmin ; admin is needed to make sure it can kill off the connection.
 {
     Run *RunAs "%A_ScriptFullPath%"
     ExitApp
 }
 
-global LeagueName := "talismanhc"
+global LeagueName := "prophecyhc"
 global showDays := "7"
 global runVersion := "5.1"
 Global URL = "http://api.exiletools.com/item-report-text"
@@ -28,14 +28,14 @@ CoordMode, Mouse, Screen
 CoordMode, ToolTip, Screen
 
 
-; Command Macros. 
+; Command Macros.
 
 ^End::
-  SoundPlay *64 
+  SoundPlay *64
   Reload
 Return
 
-; Storage Tools 
+; Storage Tools
 ; =============================================================================
 #Ifwinactive, Path of Exile
 ~+WheelDown::
@@ -68,17 +68,18 @@ return
 return
 
 
-; Quick Disconnect. 
+; Quick Disconnect.
 ; ============================================================================
 #Ifwinactive, Path of Exile
 `::
-; 	string:= "cports.exe /close * * * * PathOfExileSteam.exe"
-	string:= "cports.exe /close * * * * PathOfExile.exe"
-	ltime := lastlogout + 1000
+	string:= "cports.exe /close * * * * PathOfExileSteam.exe"
+	ltime := lastlogout + 2500
 	if ( ltime < A_TickCount ) {
 		Run, %string%
 		lastlogout := A_TickCount
 	}
+  sleep 2
+	SendInput, {Enter}
 return
 
 
@@ -100,19 +101,6 @@ return
 return
 
 #Ifwinactive, Path of Exile
-~Tab::
-if (RateLimit(5000, 1)){
-	BlockInput On
-	SendInput, {Enter}
-	Sleep 2
-	SendInput, {/}remaining
-	SendInput, {Enter}
-	BlockInput Off
-	return
-}
-return
-
-#Ifwinactive, Path of Exile
 ~F5::
 	BlockInput On
 	Send ^{Enter}{Home}{Delete}/invite {Enter}
@@ -121,8 +109,8 @@ return
 return
 
 ; Chat Macros
-; Alt + 1 tells the pm-er you're in a map. 
-; Alt + 2 thanks the pm-er. 
+; Alt + 1 tells the pm-er you're in a map.
+; Alt + 2 thanks the pm-er.
 ; ============================================================================
 
 #IfWinActive, Path of Exile
@@ -162,7 +150,7 @@ return
 ; default is shift+f
 #Ifwinactive, Path of Exile
 ~+f::
-IfWinActive, Path of Exile ahk_class Direct3DWindowClass 
+IfWinActive, Path of Exile ahk_class Direct3DWindowClass
 {
   FunctionReadItemFromClipboard()
 }
@@ -175,11 +163,11 @@ return
 RateLimit(ms, n)
 {
     static lastcall := {}
- 
+
     if (A_TickCount - (lastcall[n] ? lastcall[n] : 0) > ms)
     {
         lastcall[n] := A_TickCount
         return true
-    } 
+    }
     return false
 }
