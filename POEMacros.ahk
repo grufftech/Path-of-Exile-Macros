@@ -19,17 +19,6 @@ if not A_IsAdmin ; admin is needed to make sure it can kill off the connection.
     ExitApp
 }
 
-global LeagueName := "prophecyhc"
-global showDays := "7"
-global runVersion := "5.1"
-Global URL = "http://api.exiletools.com/item-report-text"
-MouseMoveThreshold := 100
-CoordMode, Mouse, Screen
-CoordMode, ToolTip, Screen
-
-
-; Command Macros.
-
 ^End::
   SoundPlay *64
   Reload
@@ -72,7 +61,7 @@ return
 ; ============================================================================
 #Ifwinactive, Path of Exile
 `::
-	string:= "cports.exe /close * * * * PathOfExileSteam.exe"
+	string:= "cports.exe /close * * * * PathOfExile.exe"
 	ltime := lastlogout + 2500
 	if ( ltime < A_TickCount ) {
 		Run, %string%
@@ -145,29 +134,3 @@ LAlt & 3::
 	BlockInput Off
 	return
 return
-
-; Price check w/ auto filters
-; default is shift+f
-#Ifwinactive, Path of Exile
-~+f::
-IfWinActive, Path of Exile ahk_class Direct3DWindowClass
-{
-  FunctionReadItemFromClipboard()
-}
-return
-
-#include poelib.ahk
-
-
-
-RateLimit(ms, n)
-{
-    static lastcall := {}
-
-    if (A_TickCount - (lastcall[n] ? lastcall[n] : 0) > ms)
-    {
-        lastcall[n] := A_TickCount
-        return true
-    }
-    return false
-}
