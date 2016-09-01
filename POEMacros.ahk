@@ -4,8 +4,6 @@
 SendMode Input
 StringCaseSense, On ; Match strings with case.
 SetWorkingDir %A_ScriptDir%
-Menu, tray, Tip, Exile Tools Price Check
-Run POE-ItemInfo.ahk
 
 If (A_AhkVersion <= "1.1.22")
 {
