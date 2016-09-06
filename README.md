@@ -1,5 +1,3 @@
-### NOTICE - SCRIPT DC CURRENTLY ONLY WORKS WITH STANDALONE VERSION.   ALL LOOK UP STUFF IS REMOVED UNTIL FURTHER NOTICE. 
-
 
 # Installation
 
@@ -8,6 +6,8 @@
 - install 32bit version.  
 
 - run POEMacros.ahk while playing POE.  
+
+- Only works with steam version for disconnect key. 
 
 # Path-of-Exile-Macros
 

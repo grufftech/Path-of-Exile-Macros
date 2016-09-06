@@ -59,7 +59,7 @@ return
 ; ============================================================================
 #Ifwinactive, Path of Exile
 `::
-	string:= "cports.exe /close * * * * PathOfExile.exe"
+	string:= "cports.exe /close * * * * PathOfExileSteam.exe"
 	ltime := lastlogout + 2500
 	if ( ltime < A_TickCount ) {
 		Run, %string%
