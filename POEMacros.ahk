@@ -24,32 +24,32 @@ Return
 
 ; Storage Tools
 ; =============================================================================
-#Ifwinactive, Path of Exile
+#IfWinActive, Path of Exile
 ~+WheelDown::
 	Send {Right}
 return
 
-#Ifwinactive, Path of Exile
+#IfWinActive, Path of Exile
 ~+WheelUp::
 	Send {Left}
 return
 
-#Ifwinactive, Path of Exile
+#IfWinActive, Path of Exile
 ~a::
 	SendInput, {Left}{End}
 return
 
-#Ifwinactive, Path of Exile
+#IfWinActive, Path of Exile
 ~d::
 	SendInput, {Right}
 return
 
-#Ifwinactive, Path of Exile
+#IfWinActive, Path of Exile
 ~+a::
   SendInput, {Left 40}{End}
 return
 
-#Ifwinactive, Path of Exile
+#IfWinActive, Path of Exile
 ~+d::
   SendInput, {Right 40}
 return
@@ -57,16 +57,11 @@ return
 
 ; Quick Disconnect.
 ; ============================================================================
-#Ifwinactive, Path of Exile
+#IfWinActive, Path of Exile
 `::
-	string:= "cports.exe /close * * * * PathOfExileSteam.exe"
-	ltime := lastlogout + 2500
-	if ( ltime < A_TickCount ) {
-		Run, %string%
-		lastlogout := A_TickCount
-	}
-  sleep 2
-	SendInput, {Enter}
+	SoundPlay *64
+	Run cports.exe /close * * * * PathOfExile_x64Steam.exe
+	Run cports.exe /close * * * * PathOfExile_x64.exe
 return
 
 
@@ -76,7 +71,7 @@ return
 ; F4 = itemlevel
 ; F5 = Party Invite the last person who PM'ed you.
 ; ============================================================================
-#Ifwinactive, Path of Exile
+#IfWinActive, Path of Exile
 ~F2::
 	BlockInput On
 	SendInput, {Enter}
@@ -87,7 +82,7 @@ return
 	return
 return
 
-#Ifwinactive, Path of Exile
+#IfWinActive, Path of Exile
 ~F5::
 	BlockInput On
 	Send ^{Enter}{Home}{Delete}/invite {Enter}
